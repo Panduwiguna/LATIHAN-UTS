@@ -1,0 +1,69 @@
+import java.util.ArrayList;
+
+// Kelas untuk merepresentasikan setiap baris data di tabel
+class Data {
+    int No;
+    String kode;
+    String matakuliah;
+    int sks;
+    String hurufmutu;
+    Double bobot;
+    Double nilai;
+
+    public Data(int NoData, String kodeData, String matakuliahData, int sksData, String hurufmutuData, Double bobotData, Double nilaiData) {
+        No = NoData;
+        kode = kodeData;
+        matakuliah = matakuliahData;
+        sks = sksData;
+        hurufmutu = hurufmutuData;
+        bobot = bobotData;
+        nilai = nilaiData;
+    }
+}
+
+public class Bismillah {
+    public static void main(String[] args) {
+        // Membuat ArrayList untuk menyimpan baris-baris data
+        ArrayList<Data> tabel = new ArrayList<>();
+
+        // Menambahkan beberapa baris data ke dalam tabel dengan nilai bobot dan nilai
+        tabel.add(new Data(1, "PS0101", "Nilai dasar shalih ahkram", 2, "B", 3.0, 70.00));
+        tabel.add(new Data(2, "PS0102", "Teologi Aswaja", 2, "A-", 3.50, 83.10));
+        tabel.add(new Data(3, "PS0104", "Civic Education", 2, "A-", 3.50, 88.00));
+        tabel.add(new Data(4, "PS0201", "Ulumul Qur'an", 2, "A-", 3.50, 80.60));
+        tabel.add(new Data(5, "PS0203", "Sejarah Pemikiran dan Keuangan Perbankan", 2, "B+", 3.25, 79.50));
+        tabel.add(new Data(6, "PS0205", "Bahasa Arab I", 2, "B-", 2.75, 68.00));
+        tabel.add(new Data(7, "PS0207", "Bahasa Inggris I", 2, "B", 3.00, 72.45));
+        tabel.add(new Data(8, "PS0209", "Pengantar Ekonomi Mikro", 3, "A-", 3.50, 82.00));
+        tabel.add(new Data(9, "PS0218", "Manajemen Syariah", 2, "A-", 3.50, 84.50));
+        tabel.add(new Data(10, "PS0227", "Pengantar Flisafat", 2, "A-", 3.50, 83.80));
+        tabel.add(new Data(11, "PS0416", "Bahasa Indonesia", 2, "A-", 3.50, 80.00));
+
+                // Menghitung total SKS dan IPK
+                int totalSks = 0;
+                double totalBobotNilai = 0.0;
+        
+                // Menampilkan data dalam bentuk tabel
+                System.out.printf("%-5s %-15s %-45s %-5s %-13s %-10s %-10s%n", "No", "Kode", "Matakuliah", "SKS", "Huruf Mutu", "Bobot", "Nilai");
+                System.out.println("--------------------------------------------------------------------------------------------------------");
+        
+                // Loop untuk menampilkan data dan menghitung total SKS dan bobot nilai
+                for (Data baris : tabel) {
+                    // Menampilkan data lengkap termasuk Bobot dan Nilai
+                    System.out.printf("%-5d %-15s %-46s %-8d %-10s %-10.1f %-10.1f%n", 
+                        baris.No, baris.kode, baris.matakuliah, baris.sks, baris.hurufmutu, baris.bobot, baris.nilai);
+                    
+                    // Menghitung total SKS dan total bobot nilai
+                    totalSks += baris.sks;
+                    totalBobotNilai += baris.bobot * baris.sks; // bobot dikalikan SKS
+                }
+        
+                // Menghitung IPK
+                double ipk = totalBobotNilai / totalSks;
+        
+                // Menampilkan Total SKS, Total Bobot Nilai, dan IPK
+                System.out.println("--------------------------------------------------------------------------------------------------------");
+                System.out.printf("%-5s %-15s %-39s %-5d %-13s %-10.1f %-10.2f%n", "Jumlah Total", "", "", totalSks, "", totalBobotNilai, ipk);
+                System.out.println();
+            }
+        }
