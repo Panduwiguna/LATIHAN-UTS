@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class LATIHANUTS1 {
+    public static void main(String[] args) {
+        Double gaji;
+        Double jamlembur;                           //ini input varibale nya
+        Double totaljamlembur;
+        Double upahperjam;
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Masukkan gaji: ");         //ini buat munculin di layar
+        gaji = sc.nextDouble();
+
+        System.out.println("Masukkan jam lembur: ");      //ini juga buat munculin di layar
+        jamlembur = sc.nextDouble();
+
+        upahperjam = gaji/173;
+        if (jamlembur >= 4){
+            totaljamlembur = gaji + (4 * upahperjam) + (4 * 2 * upahperjam);        //kalo jam lemburnya lebih dari 4 jam, jadi dikali 2
+            System.out.println("Total gaji lembur : " +totaljamlembur);
+        }else{
+            totaljamlembur = gaji + (jamlembur * upahperjam);
+            System.out.println("Total gaji lebur :" + totaljamlembur);
+        }sc.close();
+
+
+    }
+}
