@@ -1,0 +1,13 @@
+//LATIHAN UTS NOMOR 2
+public class LATIHANUTS2 {
+    public static void main(String[] args) {
+        int a = 4;
+        for (int b=1; b<=a;b++){
+            for (int c=0; c<a; c++){
+                if (c<a-b) {System.out.print("S");}
+                else {System.out.print("O");}
+            }
+            System.out.println();
+        }
+        
+    }}
